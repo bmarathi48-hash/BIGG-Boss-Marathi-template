@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html b:version='2'
+xmlns='http://www.w3.org/1999/xhtml'
+xmlns:b='http://www.google.com/2005/gml/b'
+xmlns:data='http://www.google.com/2005/gml/data'
+xmlns:expr='http://www.google.com/2005/gml/expr'>
+
+<head>
+<meta charset='UTF-8'/>
+<meta name='viewport' content='width=device-width, initial-scale=1'/>
+<title>BIGG BOSS MARATHI</title>
+
+<b:skin><![CDATA[
+
+body{
+  margin:0;
+  background:linear-gradient(135deg,#1a0033,#000);
+  font-family: Arial, sans-serif;
+  color:#fff;
+}
+
+.container{
+  max-width:600px;
+  margin:auto;
+  padding:15px;
+}
+
+.top-bar{
+  background:linear-gradient(90deg,#2d005a,#000);
+  padding:18px;
+  border-radius:20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  box-shadow:0 0 20px #a64dff;
+}
+
+.top-bar h1{
+  margin:0;
+  font-size:22px;
+  color:#ffd700;
+  text-shadow:0 0 10px #ffd700;
+}
+
+.live-btn{
+  background:#ffd700;
+  color:#000;
+  padding:8px 18px;
+  border-radius:25px;
+  font-weight:bold;
+  box-shadow:0 0 15px #ffd700;
+}
+
+.live-box{
+  margin-top:20px;
+  padding:25px;
+  border-radius:25px;
+  border:2px solid #ffd700;
+  box-shadow:0 0 25px #a64dff;
+  text-align:center;
+  background:rgba(45,0,90,0.6);
+}
+
+.live-box h2{
+  color:#ffd700;
+  font-size:26px;
+  margin:0 0 10px;
+  text-shadow:0 0 10px #ffd700;
+}
+
+.timer{
+  margin:15px auto;
+  padding:15px;
+  width:230px;
+  border-radius:20px;
+  border:2px solid #ffd700;
+  font-size:22px;
+  color:#ffd700;
+  box-shadow:0 0 15px #ffd700;
+}
+
+.card{
+  margin-top:20px;
+  padding:20px;
+  background:rgba(30,0,60,0.8);
+  border-radius:25px;
+  text-align:center;
+  box-shadow:0 0 15px #a64dff;
+}
+
+.button{
+  display:block;
+  margin-top:15px;
+  padding:14px;
+  background:linear-gradient(45deg,#ffd700,#ffcc00);
+  border-radius:30px;
+  color:#000;
+  font-weight:bold;
+  text-decoration:none;
+  box-shadow:0 0 15px #ffd700;
+}
+
+.footer{
+  margin-top:30px;
+  text-align:center;
+  color:#ccc;
+  font-size:13px;
+}
+
+]]></b:skin>
+
+<script type='text/javascript'>
+function startTimer() {
+  function updateCountdown() {
+    var now = new Date();
+    var utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+    var istNow = new Date(utc + (3600000*5.5));
+    var target = new Date(istNow);
+    target.setHours(20,0,0,0);
+    if (istNow > target) {
+      target.setDate(target.getDate() + 1);
+    }
+    var distance = target - istNow;
+    var hours = Math.floor(distance / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    if (distance <= 0) {
+      document.getElementById("demo").innerHTML = "🔴 LIVE NOW";
+    } else {
+      document.getElementById("demo").innerHTML =
+        hours + "h " + minutes + "m " + seconds + "s ";
+    }
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+}
+</script>
+
+</head>
+
+<body onload='startTimer()'>
+
+<div class='container'>
+
+<div class='top-bar'>
+  <h1>BIGG BOSS MARATHI</h1>
+  <div class='live-btn'>● LIVE</div>
+</div>
+
+<div class='live-box'>
+  <h2>LIVE STREAM ENDED</h2>
+  <p>Next Live Starts In</p>
+  <div class='timer' id='demo'></div>
+  <p>New Episode Daily at 8:00 PM</p>
+</div>
+
+<div class='card'>
+  <p>Follow For Daily Updates & Live Links</p>
+  <a class='button' href='https://t.me/Bigg_Boss_Marathii'>Join Telegram</a>
+</div>
+
+<div class='card'>
+  <p>Missed Episodes & Links on Telegram</p>
+  <a class='button' href='https://t.me/Bigg_Boss_Marathii'>Click here to join</a>
+</div>
+
+<div class='footer'>
+  © 2026 BIGG BOSS MARATHI – Fan Platform <br/><br/>
+  This website is a fan-made platform. We do not host or own any video content.
+</div>
+
+</div>
+
+</body>
+</html>
